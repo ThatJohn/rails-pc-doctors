@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jobname: MyText
+  clients: 
+  technicians: 
+
+two:
+  jobname: MyText
+  clients: 
+  technicians: 

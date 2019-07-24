@@ -1,0 +1,37 @@
+<h1>Editing <%= @order.jobname %></h1>
+<p>
+  <%= link_to "Cancel", work_orders_path %> |
+  <%= link_to "Delete order", work_order_path(@order), method: :delete %>
+</p>
+
+<hr>
+<% if flash[:errors] %>
+<ul>
+  <% flash[:errors].each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+  <hr>
+<% end %>
+
+<%= form_for @order do |o| %>
+
+  <p><%= o.label :jobname %>
+    <%= o.text_field :jobname %></p>
+
+  <p><%= o.label :client_id %>
+    <%= o.collection_select(:client_id, @clients, :id, :name) %></p>
+
+  <p><%= o.label :technician_id %>
+    <%= o.collection_select(:technician_id, @techs, :id, :name) %></p>
+
+  <p>
+    <%= o.label :status %>
+    <%= o.radio_button :status, "In progress" %> In progress |
+    <%= o.radio_button :status, "Complete" %> Complete
+  </p>
+
+  <%= o.hidden_field :id, value: @order.id %>
+
+  <%= o.submit %>
+<% end %>

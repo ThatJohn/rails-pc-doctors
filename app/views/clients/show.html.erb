@@ -1,0 +1,13 @@
+<h1>Viewing info for <%= @client.name %></h1>
+<p>
+  <%= link_to "Go back", clients_path %> |
+  <%= link_to "Edit #{@client.name}", edit_client_path %> |
+  <%= link_to "Delete #{@client.name}", client_path(@client), method: :delete %>
+</p>
+<hr>
+<h3>List of jobs</h3>
+<ul>
+  <% @orders.each do |order| %>
+    <li><%= link_to order.jobname, order %></li>
+  <% end %>
+</ul>

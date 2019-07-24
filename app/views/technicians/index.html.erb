@@ -1,0 +1,12 @@
+<h1>Showing list of technicians</h1>
+<p>
+  <%= link_to "Add new technician", new_technician_path %> |
+  <%= link_to "View Clients", clients_path %> |
+  <%= link_to "View work orders",  work_orders_path %>
+</p>
+<hr>
+<ul>
+  <% @technicians.each do |tech| %>
+  <li><%= link_to tech.name, tech  %></li>
+  <% end %>
+</ul>

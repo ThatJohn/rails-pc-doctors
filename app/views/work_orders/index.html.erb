@@ -1,0 +1,12 @@
+<h1>Showing <%= @orders.count %> work orders</h1>
+<p>
+  <%= link_to "Add new work order", new_work_order_path %> |
+  <%= link_to "View technicians", technicians_path %> |
+  <%= link_to "View clients",  clients_path %>
+</p>
+<hr>
+<ul>
+  <% @orders.each do |order| %>
+    <li><%= link_to "#{order.jobname} for #{order.client.name} by #{order.technician.name}", order  %></li>
+  <% end %>
+</ul>

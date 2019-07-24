@@ -1,0 +1,31 @@
+<h1>Adding new work order</h1>
+<p>
+  <%= link_to "Cancel", work_orders_path %> |
+</p>
+
+<hr>
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <hr>
+<% end %>
+
+<%= form_for @order do |o| %>
+
+  <p><%= o.label :jobname %>
+  <%= o.text_field :jobname %></p>
+
+  <p><%= o.label :client_id %>
+  <%= o.collection_select(:client_id, @clients, :id, :name) %></p>
+
+  <p><%= o.label :technician_id %>
+  <%= o.collection_select(:technician_id, @techs, :id, :name) %></p>
+
+  <%= o.hidden_field :status, value: "In progress" %>
+
+  <%= o.submit %>
+
+<% end %>

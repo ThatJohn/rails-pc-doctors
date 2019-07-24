@@ -1,0 +1,11 @@
+<h1>Viewing <%= @order.jobname %></h1>
+<p>
+  <%= link_to "Go back", work_orders_path %> |
+  <%= link_to "Edit order", edit_work_order_path %>
+</p>
+<hr>
+
+<p>Technician: <%= @order.technician.name %></p>
+<p>Client: <%= @order.client.name %></p>
+<p>Status: <%= @order.status %></p>
+

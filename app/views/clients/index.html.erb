@@ -1,0 +1,12 @@
+<h1>Showing list of clients</h1>
+<p>
+  <%= link_to "Add new client", new_client_path %> |
+  <%= link_to "View technicians", technicians_path %> |
+  <%= link_to "View work orders",  work_orders_path %>
+</p>
+<hr>
+<ul>
+  <% @clients.each do |tech| %>
+    <li><%= link_to tech.name, tech  %></li>
+  <% end %>
+</ul>
